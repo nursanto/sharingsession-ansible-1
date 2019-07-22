@@ -1,0 +1,14 @@
+[master]
+serverx.lab
+
+[node]
+server-a.lab
+server-b.lab
+server-c.lab
+server-d.lab
+server-e.lab
+server-f.lab
+server-g.lab
+server-h.lab
+server-i.lab
+server-j.lab

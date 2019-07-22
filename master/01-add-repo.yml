@@ -1,0 +1,10 @@
+---
+- name: add repo
+  hosts: all
+  become: true
+  tasks:
+    - name: download osp.repo
+      get_url:
+        url: ftp://192.168.0.1/pub/osprepo/osp.repo
+        dest: /etc/yum.repos.d/osp.repo
+        mode : 0755

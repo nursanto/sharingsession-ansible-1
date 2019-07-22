@@ -1,0 +1,9 @@
+---
+- name: remove repo
+  hosts: all
+  become: true
+  tasks:
+    - name: remove osp.repo
+      file:
+        path: /etc/yum.repos.d/osp.repo
+        state: absent

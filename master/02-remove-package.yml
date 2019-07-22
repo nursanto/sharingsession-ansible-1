@@ -1,0 +1,11 @@
+---
+- name: install package
+  hosts: all
+  become: true
+  tasks:
+    - name: install package
+      yum:
+        name:
+          - httpd
+          - firewalld
+        state: absent

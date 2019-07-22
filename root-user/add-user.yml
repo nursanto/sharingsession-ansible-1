@@ -1,0 +1,19 @@
+---
+- name: Add the user and add to sudoers
+  hosts: node
+  tasks:
+    - name: add user
+      user:
+        name: plowoh
+
+    - name: set password
+      shell: echo plowoh | passwd plowoh --stdin
+
+    - name: add to sudoers
+      lineinfile:
+        path: /etc/sudoers.d/plowoh
+        line: 'plowoh ALL=(ALL) NOPASSWD: ALL'
+        state: present
+        mode: 0440
+        create: yes
+        validate: 'visudo -cf %s'       

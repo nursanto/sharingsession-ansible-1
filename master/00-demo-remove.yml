@@ -1,0 +1,19 @@
+---
+- name: remove and stop httpd
+  hosts: all
+  become: true
+  tasks:
+    - name: stop httpd service
+      service:
+        name: httpd
+        state: stopped
+        enabled: no
+    - name: remove httpd
+      yum:
+        name: httpd
+        state: removed
+    - name: remove index.html
+      file:
+        path: files/index.html
+        state: absent
+

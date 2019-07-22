@@ -1,0 +1,10 @@
+---
+- name: disable subscription manager
+  hosts: all
+  become: yes
+  tasks:
+    - name: disable subscription manager
+      replace:
+        path: /etc/yum/pluginconf.d/subscription-manager.conf
+        regexp: 'enabled=1'
+        replace: 'enabled=0'
